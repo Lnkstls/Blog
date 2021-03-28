@@ -20,7 +20,7 @@
   <meta name="author" content="Lnkstls">
   <meta name="keywords" content="博客,个人博客,记录生活,友利奈绪,Lnkstls,Blog">
   
-  <title>vscode-自定义代码片段 - Lnkstls Blog</title>
+  <title>开始使用 - Lnkstls Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -177,7 +177,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="vscode-自定义代码片段">
+            <span class="h2" id="subtitle" title="开始使用">
               
             </span>
 
@@ -187,8 +187,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-28 21:05" pubdate>
-        2021年3月28日 晚上
+      <time datetime="2020-12-04 00:05" pubdate>
+        2020年12月4日 凌晨
       </time>
     </span>
   
@@ -199,7 +199,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      726 字
+      29 字
     </span>
   
 
@@ -209,7 +209,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      1
        分钟
     </span>
   
@@ -247,166 +247,23 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">vscode-自定义代码片段</h1>
+            <h1 style="display: none">开始使用</h1>
             
             <div class="markdown-body">
-              <h2 id="配置路径"><a href="#配置路径" class="headerlink" title="配置路径"></a>配置路径</h2><p>在Windows10下的文件位置</p>
-<p>用户定义的补全：</p>
-<blockquote>
-<p>%HOMEPATH%\AppData\Roaming\Code\User\snippets</p>
-</blockquote>
-<p>vscode内置的补全：</p>
-<blockquote>
-<p>Microsoft VS Code\resources\app\extensions\关联的语言\snippets</p>
-</blockquote>
-<h2 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h2><p>打开后会有一个示例，如：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs json">&quot;Print to console&quot;: &#123;<br>	&quot;prefix&quot;: &quot;log&quot;,<br>		&quot;body&quot;: [<br>			&quot;console.log(&#x27;$1&#x27;);&quot;,<br>            <span class="hljs-string">&quot;$2&quot;</span><br>        ],<br>	&quot;description&quot;: &quot;Log output to console&quot;<br>    &#125;<br></code></pre></td></tr></table></figure>
+              <h2 id="安装NodeJs与Npm"><a href="#安装NodeJs与Npm" class="headerlink" title="安装NodeJs与Npm"></a>安装NodeJs与Npm</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt -y install nodejs npm</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><code>Print to console</code> 代码片段名称；</li>
-<li><code>prefix</code> 插件前缀；</li>
-<li><code>body</code> 插件内容可以是字符串，也可以为数组，若为数组每个元素都做为单独的一行插入；</li>
-<li><code>description</code> 插件描述。</li>
-</ul>
-<h2 id="Snippet-语法"><a href="#Snippet-语法" class="headerlink" title="Snippet 语法"></a>Snippet 语法</h2><p>制表位(Tabstops)：</p>
-<blockquote>
-<p>使用制表位可以在代码片段中移动光标位置（如使用Tab切换到下一个位置），使用$1,$2来指定光标的位置，数字代表光标的移动的顺序，$0代表光标的最后位置。如果有多个相同的制表位会在编译器里同时出现多个光标（类似编译器的块编辑模式）。</p>
-</blockquote>
-<p>占位符(Placeholders)</p>
-<blockquote>
-<p>占位符是带默认值的制表位，占位符的文本会被插入到制表位所在位置并且全选以方便修改，占位符可以嵌套使用，比如${1:another ${2:placeholder}}。</p>
-</blockquote>
-<p>选择项(Choice)</p>
-<blockquote>
-<p>占位符可以有多选值，每个选项的值用<code>逗号</code>分隔，选项的开始和结束用管道符号（|）将选项包含，例如: ${1|one,two,three|}，当插入代码片段，选择制制表位的时候，会列出选项供用户选择。</p>
-</blockquote>
-<p>变量(Variables)</p>
-<blockquote>
-<p>使用<code>$name</code>或者<code>$&#123;name|default&#125;</code>可以插入变量的值，如果变量未被赋值则插入<code>default </code>的值或者空值 。当变量未被定义，则将变量名插入，变量将被转换为占位符。</p>
-</blockquote>
-<h3 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h3><table>
-<thead>
-<tr>
-<th>变量</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>TM_SELECTED_TEXT</td>
-<td>当前选定的文本或空字符串</td>
-</tr>
-<tr>
-<td>TM_CURRENT_LINE</td>
-<td>当前行的内容</td>
-</tr>
-<tr>
-<td>TM_CURRENT_WORD</td>
-<td>光标所处单词或空字符串</td>
-</tr>
-<tr>
-<td>TM_LINE_INDEX</td>
-<td>行号（从零开始）</td>
-</tr>
-<tr>
-<td>TM_LINE_NUMBER</td>
-<td>行号（从一开始）</td>
-</tr>
-<tr>
-<td>TM_FILENAME</td>
-<td>当前文档的文件名（含后缀名）</td>
-</tr>
-<tr>
-<td>TM_FILENAME_BASE</td>
-<td>当前文档的文件名（不含后缀名）</td>
-</tr>
-<tr>
-<td>TM_DIRECTORY</td>
-<td>当前文档所在目录</td>
-</tr>
-<tr>
-<td>TM_FILEPATH</td>
-<td>当前文档的完整文件路径</td>
-</tr>
-<tr>
-<td>CLIPBOARD</td>
-<td>当前剪贴板中内容</td>
-</tr>
-</tbody></table>
-<p>日期时间相关：</p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>CURRENT_YEAR</td>
-<td>当前年份</td>
-</tr>
-<tr>
-<td>CURRENT_YEAR_SHORT</td>
-<td>当前年份的后两位</td>
-</tr>
-<tr>
-<td>CURRENT_MONTH</td>
-<td>格式化为两位数字的当前月份</td>
-</tr>
-<tr>
-<td>CURRENT_MONTH_NAME</td>
-<td>当前月份的全称</td>
-</tr>
-<tr>
-<td>CURRENT_MONTH_NAME_SHORT</td>
-<td>当前月份的简称</td>
-</tr>
-<tr>
-<td>CURRENT_DATE</td>
-<td>当天月份第几天</td>
-</tr>
-<tr>
-<td>CURRENT_DAY_NAME</td>
-<td>当天周几</td>
-</tr>
-<tr>
-<td>CURRENT_DAY_NAME_SHORT</td>
-<td>当天周几的简称</td>
-</tr>
-<tr>
-<td>CURRENT_HOUR</td>
-<td>当前小时</td>
-</tr>
-<tr>
-<td>CURRENT_MINUTE</td>
-<td>当前分钟</td>
-</tr>
-<tr>
-<td>CURRENT_SECOND</td>
-<td>当前秒数</td>
-</tr>
-</tbody></table>
-<p>注释相关：</p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>BLOCK_COMMENT_START</td>
-<td>块注释开始标识，如 PHP<code>/* </code>或 HTML <code>&lt;!--</code></td>
-</tr>
-<tr>
-<td>BLOCK_COMMENT_END</td>
-<td>块注释结束标识，如 PHP<code>*/ </code>或 HTML <code>--&gt;</code></td>
-</tr>
-<tr>
-<td>LINE_COMMENT</td>
-<td>行注释，如： PHP <code>//</code> 或 HTML <code>&lt;!-- --&gt;</code></td>
-</tr>
-</tbody></table>
-<p>若想将语法关键字当做普通字符使用则需要使用转义字符<code>\</code>（反斜杠）进行转义。</p>
+
+
+<h2 id="安装Hexo-cli"><a href="#安装Hexo-cli" class="headerlink" title="安装Hexo-cli"></a>安装Hexo-cli</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="开始体验"><a href="#开始体验" class="headerlink" title="开始体验"></a>开始体验</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
 
             </div>
             <hr>
@@ -416,7 +273,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/vscode/">vscode</a>
+                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux/shell/">shell</a>
                     
                   </div>
                 
@@ -424,7 +283,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/vscode/">vscode</a>
+                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
                     
                   </div>
                 
@@ -441,15 +300,15 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2020/12/07/docker/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Docker的基本操作使用</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/20210325/shell-read/">
-                        <span class="hidden-mobile">shell-read</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>

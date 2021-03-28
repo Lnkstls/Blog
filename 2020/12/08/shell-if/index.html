@@ -20,7 +20,7 @@
   <meta name="author" content="Lnkstls">
   <meta name="keywords" content="博客,个人博客,记录生活,友利奈绪,Lnkstls,Blog">
   
-  <title>vnstat的使用 - Lnkstls Blog</title>
+  <title>shell中if的使用 - Lnkstls Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -177,7 +177,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="vnstat的使用">
+            <span class="h2" id="subtitle" title="shell中if的使用">
               
             </span>
 
@@ -187,8 +187,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-26 00:00" pubdate>
-        2020年12月26日 凌晨
+      <time datetime="2020-12-08 19:25" pubdate>
+        2020年12月8日 晚上
       </time>
     </span>
   
@@ -199,7 +199,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      491 字
+      297 字
     </span>
   
 
@@ -209,7 +209,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      4
        分钟
     </span>
   
@@ -247,196 +247,45 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">vnstat的使用</h1>
+            <h1 style="display: none">shell中if的使用</h1>
             
             <div class="markdown-body">
-              <h1 id="Vnstat解析"><a href="#Vnstat解析" class="headerlink" title="Vnstat解析"></a>Vnstat解析</h1><blockquote>
-<p>vnstat [OPTION]</p>
+              <h1 id="Shell-if"><a href="#Shell-if" class="headerlink" title="Shell if"></a>Shell if</h1><h2 id="Test："><a href="#Test：" class="headerlink" title="Test：[]"></a>Test：[]</h2><p>Shell中的 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试。</p>
+<blockquote>
+<p>[ ] 两个符号左右都要有空格分隔。</p>
+<p>内部操作符与操作变量之间要有空格：如  [  “a”  =  “b”  ]。</p>
+<p>字符串比较中，&gt; &lt; 需要写成&gt; &lt; 进行转义。</p>
+<p>[ ] 中字符串或者${}变量尽量使用”” 双引号扩住，避免值未定义引用而出错的好办法。</p>
+<p>[ ] 中可以使用 –a –o 进行逻辑运算。</p>
+<p>[ ] 是bash 内置命令：[ is a shell builtin。</p>
 </blockquote>
 <table>
 <thead>
 <tr>
-<th>OPTION</th>
+<th>或与非</th>
 <th></th>
 </tr>
 </thead>
 <tbody><tr>
-<td>-q, –query</td>
-<td></td>
+<td>-o</td>
+<td>或，操作符两边一边为真，结果为真，否则为假。</td>
 </tr>
 <tr>
-<td>-h, hours</td>
-<td>显示小时流量。</td>
+<td>-a</td>
+<td>与，操作符两边均为真，结果为真，否则为假。</td>
 </tr>
 <tr>
-<td>-d, –days</td>
-<td>显示日流量。</td>
-</tr>
-<tr>
-<td>-m, –months</td>
-<td>显示月流量。</td>
-</tr>
-<tr>
-<td>-w, –weeks</td>
-<td>显示周流量。</td>
-</tr>
-<tr>
-<td>-t, –top10</td>
-<td>显示流量最高的10天。</td>
-</tr>
-<tr>
-<td>-s, –short</td>
-<td>使用简略输出。</td>
-</tr>
-<tr>
-<td>-u, –update</td>
-<td>更新数据库。</td>
-</tr>
-<tr>
-<td>-i, –iface</td>
-<td>选择网卡接口（默认eth0）。</td>
-</tr>
-<tr>
-<td>-?, –help</td>
-<td>查看帮助。</td>
-</tr>
-<tr>
-<td>-v, –version</td>
-<td>查看版本信息。</td>
-</tr>
-<tr>
-<td>-tr, –traffic</td>
-<td></td>
-</tr>
-<tr>
-<td>-ru, –rateunit</td>
-<td></td>
-</tr>
-<tr>
-<td>-l, –live</td>
-<td>显示实时流量。</td>
-</tr>
-<tr>
-<td>-r, –reset</td>
-<td>重置接口统计。</td>
-</tr>
-<tr>
-<td>-D, –debug</td>
-<td></td>
-</tr>
-<tr>
-<td>–oneline</td>
-<td>显示简单可解析格式。</td>
-</tr>
-<tr>
-<td>–importdb</td>
-<td>导入以前导出的数据库。</td>
-</tr>
-<tr>
-<td>–json</td>
-<td>以json格式显示。</td>
-</tr>
-<tr>
-<td>–xml</td>
-<td>以xml格式显示。</td>
-</tr>
-<tr>
-<td>–create</td>
-<td>创建数据库。</td>
-</tr>
-<tr>
-<td>–delete</td>
-<td>删除数据库。</td>
-</tr>
-<tr>
-<td>–sync</td>
-<td>同步计数。</td>
-</tr>
-<tr>
-<td>–enable</td>
-<td>启用接口。</td>
-</tr>
-<tr>
-<td>–disable</td>
-<td>关闭接口。</td>
-</tr>
-<tr>
-<td>–nick</td>
-<td>为接口设置昵称。</td>
-</tr>
-<tr>
-<td>–cleartop</td>
-<td>清除前10名。</td>
-</tr>
-<tr>
-<td>–rebuildtotal</td>
-<td>重置月份的传输数。</td>
-</tr>
-<tr>
-<td>–style</td>
-<td>选择输出样式（0-4）</td>
-</tr>
-<tr>
-<td>–iflist</td>
-<td>显示可用接口列表。</td>
-</tr>
-<tr>
-<td>–dbdir</td>
-<td>选择数据库目录。</td>
-</tr>
-<tr>
-<td>–locale</td>
-<td>设置区域设置。</td>
-</tr>
-<tr>
-<td>–config</td>
-<td>选择配置文件。</td>
-</tr>
-<tr>
-<td>–savemerged</td>
-<td>将数据库保存到当前目录。</td>
-</tr>
-<tr>
-<td>–showconfig</td>
-<td>使用当前设置存储配置文件。</td>
-</tr>
-<tr>
-<td>–testkernel</td>
-<td>检查内核是否损坏。</td>
-</tr>
-<tr>
-<td>–longhelp</td>
-<td>查看所有帮助。</td>
-</tr>
-<tr>
-<td>–dumpdb</td>
-<td>输出数据库。</td>
+<td>!</td>
+<td>否，条件为假，结果为真。</td>
 </tr>
 </tbody></table>
-<blockquote>
-<p>TX代表上传数据，RX是接收数据。</p>
-</blockquote>
-<h2 id="–dumpdb"><a href="#–dumpdb" class="headerlink" title="–dumpdb"></a>–dumpdb</h2><blockquote>
-<p>vnstat –dumpdb</p>
-</blockquote>
-<p>格式：</p>
-<blockquote>
-<p>d;0;1078696800;559;7433;68;557;1</p>
-</blockquote>
-<p>其中 d = 天，0 = 数据库中的天数 （0 为今天），1077314401 日期在 Unix 时间， 559 = rx MiB， 7433 = tx MiB， 68 = rx KiB， 557 = tx KiB 和 1 告诉 vnStat 已填充此值，并且正在使用中。</p>
-<blockquote>
-<p>m;0;1078092000;48649;139704;527;252;1    （x12）<br>t;0;1078351200;5979;47155;362;525;1    （x10）<br>h;0;1078699800;118265;516545    （x24）</p>
-</blockquote>
-<p>m = 月，t = top10 和 h = 小时，所有其他字段的顺序与天相同，除非小时没有单独的 KiB 值。在几个小时内，第四个和第五个字段在 KiB 中具有值。</p>
-<h2 id="清零"><a href="#清零" class="headerlink" title="清零"></a>清零</h2><p>数据都在 /var/lib/vnstat/网卡 下，直接删除。</p>
-<h2 id="–delete-–create"><a href="#–delete-–create" class="headerlink" title="–delete/–create"></a>–delete/–create</h2><blockquote>
-<p>vnstat –delete –force -i eth0</p>
-<p>vnstat –create -i eth0</p>
-</blockquote>
-<p>删除数据库重新统计。</p>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h3 id="不自动刷新"><a href="#不自动刷新" class="headerlink" title="不自动刷新"></a>不自动刷新</h3><p>更改权限组：</p>
-<blockquote>
-<p>chown -R vnstat:vnstat /var/lib/vnstat</p>
+<h2 id="Bash："><a href="#Bash：" class="headerlink" title="Bash：[[]]"></a>Bash：[[]]</h2><blockquote>
+<p>[[ ]] 两个符号左右都要有空格分隔。</p>
+<p>内部操作符与操作变量之间要有空格：如  [[  “a” =  “b”  ]]。</p>
+<p>字符串比较中，可以直接使用 &gt; &lt; 无需转义。</p>
+<p>[[ ]] 中字符串或者${}变量尽量如未使用”” 双引号扩住的话，会进行模式和元字符匹配。</p>
+<p>[[] ] 内部可以使用 &amp;&amp;  || 进行逻辑运算。</p>
+<p>[[ ]] 是bash  keyword：[[ is a shell keyword。</p>
 </blockquote>
 
             </div>
@@ -449,13 +298,15 @@
                     
                       <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
                     
+                      <a class="hover-with-bg" href="/categories/Linux/shell/">shell</a>
+                    
                   </div>
                 
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                      <a class="hover-with-bg" href="/tags/shell/">shell</a>
                     
                   </div>
                 
@@ -472,9 +323,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/20201226/Vue%E5%AD%A6%E4%B9%A0/">
+                      <a href="/2020/12/26/Shell-vnstart/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Vue学习</span>
+                        <span class="hidden-mobile">vnstat的使用</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -482,8 +333,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/20201208/shell-if/">
-                        <span class="hidden-mobile">shell中if的使用</span>
+                      <a href="/2020/12/07/docker/">
+                        <span class="hidden-mobile">Docker的基本操作使用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
