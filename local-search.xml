@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>vscode-自定义代码片段</title>
+    <link href="/20210328/vscode-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/"/>
+    <url>/20210328/vscode-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/</url>
+    
+    <content type="html"><![CDATA[<h2 id="配置路径"><a href="#配置路径" class="headerlink" title="配置路径"></a>配置路径</h2><p>在Windows10下的文件位置</p><p>用户定义的补全：</p><blockquote><p>%HOMEPATH%\AppData\Roaming\Code\User\snippets</p></blockquote><p>vscode内置的补全：</p><blockquote><p>Microsoft VS Code\resources\app\extensions\关联的语言\snippets</p></blockquote><h2 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h2><p>打开后会有一个示例，如：</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs json">&quot;Print to console&quot;: &#123;<br>&quot;prefix&quot;: &quot;log&quot;,<br>&quot;body&quot;: [<br>&quot;console.log(&#x27;$1&#x27;);&quot;,<br>            <span class="hljs-string">&quot;$2&quot;</span><br>        ],<br>&quot;description&quot;: &quot;Log output to console&quot;<br>    &#125;<br></code></pre></td></tr></table></figure><ul><li><code>Print to console</code> 代码片段名称；</li><li><code>prefix</code> 插件前缀；</li><li><code>body</code> 插件内容可以是字符串，也可以为数组，若为数组每个元素都做为单独的一行插入；</li><li><code>description</code> 插件描述。</li></ul><h2 id="Snippet-语法"><a href="#Snippet-语法" class="headerlink" title="Snippet 语法"></a>Snippet 语法</h2><p>制表位(Tabstops)：</p><blockquote><p>使用制表位可以在代码片段中移动光标位置（如使用Tab切换到下一个位置），使用$1,$2来指定光标的位置，数字代表光标的移动的顺序，$0代表光标的最后位置。如果有多个相同的制表位会在编译器里同时出现多个光标（类似编译器的块编辑模式）。</p></blockquote><p>占位符(Placeholders)</p><blockquote><p>占位符是带默认值的制表位，占位符的文本会被插入到制表位所在位置并且全选以方便修改，占位符可以嵌套使用，比如${1:another ${2:placeholder}}。</p></blockquote><p>选择项(Choice)</p><blockquote><p>占位符可以有多选值，每个选项的值用<code>逗号</code>分隔，选项的开始和结束用管道符号（|）将选项包含，例如: ${1|one,two,three|}，当插入代码片段，选择制制表位的时候，会列出选项供用户选择。</p></blockquote><p>变量(Variables)</p><blockquote><p>使用<code>$name</code>或者<code>$&#123;name|default&#125;</code>可以插入变量的值，如果变量未被赋值则插入<code>default </code>的值或者空值 。当变量未被定义，则将变量名插入，变量将被转换为占位符。</p></blockquote><h3 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h3><table><thead><tr><th>变量</th><th>说明</th></tr></thead><tbody><tr><td>TM_SELECTED_TEXT</td><td>当前选定的文本或空字符串</td></tr><tr><td>TM_CURRENT_LINE</td><td>当前行的内容</td></tr><tr><td>TM_CURRENT_WORD</td><td>光标所处单词或空字符串</td></tr><tr><td>TM_LINE_INDEX</td><td>行号（从零开始）</td></tr><tr><td>TM_LINE_NUMBER</td><td>行号（从一开始）</td></tr><tr><td>TM_FILENAME</td><td>当前文档的文件名（含后缀名）</td></tr><tr><td>TM_FILENAME_BASE</td><td>当前文档的文件名（不含后缀名）</td></tr><tr><td>TM_DIRECTORY</td><td>当前文档所在目录</td></tr><tr><td>TM_FILEPATH</td><td>当前文档的完整文件路径</td></tr><tr><td>CLIPBOARD</td><td>当前剪贴板中内容</td></tr></tbody></table><p>日期时间相关：</p><table><thead><tr><th>变量</th><th>说明</th></tr></thead><tbody><tr><td>CURRENT_YEAR</td><td>当前年份</td></tr><tr><td>CURRENT_YEAR_SHORT</td><td>当前年份的后两位</td></tr><tr><td>CURRENT_MONTH</td><td>格式化为两位数字的当前月份</td></tr><tr><td>CURRENT_MONTH_NAME</td><td>当前月份的全称</td></tr><tr><td>CURRENT_MONTH_NAME_SHORT</td><td>当前月份的简称</td></tr><tr><td>CURRENT_DATE</td><td>当天月份第几天</td></tr><tr><td>CURRENT_DAY_NAME</td><td>当天周几</td></tr><tr><td>CURRENT_DAY_NAME_SHORT</td><td>当天周几的简称</td></tr><tr><td>CURRENT_HOUR</td><td>当前小时</td></tr><tr><td>CURRENT_MINUTE</td><td>当前分钟</td></tr><tr><td>CURRENT_SECOND</td><td>当前秒数</td></tr></tbody></table><p>注释相关：</p><table><thead><tr><th>变量</th><th>说明</th></tr></thead><tbody><tr><td>BLOCK_COMMENT_START</td><td>块注释开始标识，如 PHP<code>/* </code>或 HTML <code>&lt;!--</code></td></tr><tr><td>BLOCK_COMMENT_END</td><td>块注释结束标识，如 PHP<code>*/ </code>或 HTML <code>--&gt;</code></td></tr><tr><td>LINE_COMMENT</td><td>行注释，如： PHP <code>//</code> 或 HTML <code>&lt;!-- --&gt;</code></td></tr></tbody></table><p>若想将语法关键字当做普通字符使用则需要使用转义字符<code>\</code>（反斜杠）进行转义。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>vscode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vscode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>shell-read</title>
+    <link href="/20210325/shell-read/"/>
+    <url>/20210325/shell-read/</url>
+    
+    <content type="html"><![CDATA[<p><strong>read命令</strong> 从键盘读取变量的值，通常用在shell脚本中与用户进行交互的场合。该命令可以一次读取多个变量的值，变量和输入的值都需要使用空格隔开。在read命令后面，如果没有指定变量名，读取的数据将被自动赋值给特定的变量REPLY。</p><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">read [-ers] [-a array] [-d delim] [-i text] [-n nchars] [-N nchars] [-p prompt] [-t timeout] [-u fd] [name ...]<br></code></pre></td></tr></table></figure><h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">-a：后跟一个变量，该变量会被认为是个数组，然后给其赋值，默认是以空格为分割符；<br>-d：后面跟一个标志符，其实只有其后的第一个字符有用，作为结束的标志；<br>-p：后面跟提示信息，即在输入前打印提示信息；<br>-e：在输入的时候可以使用命令补全功能；<br>-n：后跟一个数字，定义输入文本的长度，很实用；<br>-r：屏蔽\，如果没有该选项，则\作为一个转义字符，有的话\就是个正常的字符了；<br>-s：安静模式，在输入字符时不再屏幕上显示，例如login时输入密码；<br>-t：后面跟秒数，定义输入字符的等待时间；<br>-u：后面跟fd，从文件描述符中读入，该文件描述符可以是exec新开启的。<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>shell</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>shell</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Fluid主题的使用</title>
+    <link href="/20210320/Fluid%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <url>/20210320/Fluid%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Fluid主题的使用"><a href="#Fluid主题的使用" class="headerlink" title="Fluid主题的使用"></a>Fluid主题的使用</h1><p>官方文档：</p><blockquote><p><a href="https://hexo.fluid-dev.com/docs/start/#%E4%B8%BB%E9%A2%98%E7%AE%80%E4%BB%8B">https://hexo.fluid-dev.com/docs/start/#%E4%B8%BB%E9%A2%98%E7%AE%80%E4%BB%8B</a></p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>hexo</category>
+      
+      <category>Fluid</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo, Fluid</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Vue学习</title>
+    <link href="/20201226/Vue%E5%AD%A6%E4%B9%A0/"/>
+    <url>/20201226/Vue%E5%AD%A6%E4%B9%A0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Vue学习"><a href="#Vue学习" class="headerlink" title="Vue学习"></a>Vue学习</h1><h2 id="MVVM模型"><a href="#MVVM模型" class="headerlink" title="MVVM模型"></a>MVVM模型</h2><h3 id="组成部分"><a href="#组成部分" class="headerlink" title="组成部分"></a>组成部分</h3><p>模型</p><blockquote><p>模型是指代表真实状态内容的领域模型（面向对象），或指代表内容的数据访问层（以数据为中心）。</p></blockquote><p>视图</p><blockquote><p>就像在MVC和MVP模式中一样，视图是用户在屏幕上看到的结构、布局和外观（UI）。</p></blockquote><p>视图模型</p><blockquote><p>视图模型是暴露公共属性和命令的视图的抽象。MVVM没有MVC模式的控制器，也没有MVP模式的presenter，有的是一个绑定器。在视图模型中，绑定器在视图和数据绑定器之间进行通信。</p></blockquote><p>绑定器</p><blockquote><p>声明性数据和命令绑定隐含在MVVM模式中。在Microsoft解决方案堆中，绑定器是一种名为XAML的标记语言。[8] 绑定器使开发人员免于被迫编写样板式逻辑来同步视图模型和视图。在微软的堆之外实现时，声明性数据绑定技术的出现是实现该模式的一个关键因素。</p></blockquote><h3 id="Vue中的MVVM模型"><a href="#Vue中的MVVM模型" class="headerlink" title="Vue中的MVVM模型"></a>Vue中的MVVM模型</h3><img src="/2020/12/26/Vue%E5%AD%A6%E4%B9%A0/tu.webp" class="" title="模型图">]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vnstat的使用</title>
+    <link href="/20201226/Shell-vnstart/"/>
+    <url>/20201226/Shell-vnstart/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Vnstat解析"><a href="#Vnstat解析" class="headerlink" title="Vnstat解析"></a>Vnstat解析</h1><blockquote><p>vnstat [OPTION]</p></blockquote><table><thead><tr><th>OPTION</th><th></th></tr></thead><tbody><tr><td>-q, –query</td><td></td></tr><tr><td>-h, hours</td><td>显示小时流量。</td></tr><tr><td>-d, –days</td><td>显示日流量。</td></tr><tr><td>-m, –months</td><td>显示月流量。</td></tr><tr><td>-w, –weeks</td><td>显示周流量。</td></tr><tr><td>-t, –top10</td><td>显示流量最高的10天。</td></tr><tr><td>-s, –short</td><td>使用简略输出。</td></tr><tr><td>-u, –update</td><td>更新数据库。</td></tr><tr><td>-i, –iface</td><td>选择网卡接口（默认eth0）。</td></tr><tr><td>-?, –help</td><td>查看帮助。</td></tr><tr><td>-v, –version</td><td>查看版本信息。</td></tr><tr><td>-tr, –traffic</td><td></td></tr><tr><td>-ru, –rateunit</td><td></td></tr><tr><td>-l, –live</td><td>显示实时流量。</td></tr><tr><td>-r, –reset</td><td>重置接口统计。</td></tr><tr><td>-D, –debug</td><td></td></tr><tr><td>–oneline</td><td>显示简单可解析格式。</td></tr><tr><td>–importdb</td><td>导入以前导出的数据库。</td></tr><tr><td>–json</td><td>以json格式显示。</td></tr><tr><td>–xml</td><td>以xml格式显示。</td></tr><tr><td>–create</td><td>创建数据库。</td></tr><tr><td>–delete</td><td>删除数据库。</td></tr><tr><td>–sync</td><td>同步计数。</td></tr><tr><td>–enable</td><td>启用接口。</td></tr><tr><td>–disable</td><td>关闭接口。</td></tr><tr><td>–nick</td><td>为接口设置昵称。</td></tr><tr><td>–cleartop</td><td>清除前10名。</td></tr><tr><td>–rebuildtotal</td><td>重置月份的传输数。</td></tr><tr><td>–style</td><td>选择输出样式（0-4）</td></tr><tr><td>–iflist</td><td>显示可用接口列表。</td></tr><tr><td>–dbdir</td><td>选择数据库目录。</td></tr><tr><td>–locale</td><td>设置区域设置。</td></tr><tr><td>–config</td><td>选择配置文件。</td></tr><tr><td>–savemerged</td><td>将数据库保存到当前目录。</td></tr><tr><td>–showconfig</td><td>使用当前设置存储配置文件。</td></tr><tr><td>–testkernel</td><td>检查内核是否损坏。</td></tr><tr><td>–longhelp</td><td>查看所有帮助。</td></tr><tr><td>–dumpdb</td><td>输出数据库。</td></tr></tbody></table><blockquote><p>TX代表上传数据，RX是接收数据。</p></blockquote><h2 id="–dumpdb"><a href="#–dumpdb" class="headerlink" title="–dumpdb"></a>–dumpdb</h2><blockquote><p>vnstat –dumpdb</p></blockquote><p>格式：</p><blockquote><p>d;0;1078696800;559;7433;68;557;1</p></blockquote><p>其中 d = 天，0 = 数据库中的天数 （0 为今天），1077314401 日期在 Unix 时间， 559 = rx MiB， 7433 = tx MiB， 68 = rx KiB， 557 = tx KiB 和 1 告诉 vnStat 已填充此值，并且正在使用中。</p><blockquote><p>m;0;1078092000;48649;139704;527;252;1    （x12）<br>t;0;1078351200;5979;47155;362;525;1    （x10）<br>h;0;1078699800;118265;516545    （x24）</p></blockquote><p>m = 月，t = top10 和 h = 小时，所有其他字段的顺序与天相同，除非小时没有单独的 KiB 值。在几个小时内，第四个和第五个字段在 KiB 中具有值。</p><h2 id="清零"><a href="#清零" class="headerlink" title="清零"></a>清零</h2><p>数据都在 /var/lib/vnstat/网卡 下，直接删除。</p><h2 id="–delete-–create"><a href="#–delete-–create" class="headerlink" title="–delete/–create"></a>–delete/–create</h2><blockquote><p>vnstat –delete –force -i eth0</p><p>vnstat –create -i eth0</p></blockquote><p>删除数据库重新统计。</p><h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h3 id="不自动刷新"><a href="#不自动刷新" class="headerlink" title="不自动刷新"></a>不自动刷新</h3><p>更改权限组：</p><blockquote><p>chown -R vnstat:vnstat /var/lib/vnstat</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>shell中if的使用</title>
+    <link href="/20201208/shell-if/"/>
+    <url>/20201208/shell-if/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Shell-if"><a href="#Shell-if" class="headerlink" title="Shell if"></a>Shell if</h1><h2 id="Test："><a href="#Test：" class="headerlink" title="Test：[]"></a>Test：[]</h2><p>Shell中的 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试。</p><blockquote><p>[ ] 两个符号左右都要有空格分隔。</p><p>内部操作符与操作变量之间要有空格：如  [  “a”  =  “b”  ]。</p><p>字符串比较中，&gt; &lt; 需要写成&gt; &lt; 进行转义。</p><p>[ ] 中字符串或者${}变量尽量使用”” 双引号扩住，避免值未定义引用而出错的好办法。</p><p>[ ] 中可以使用 –a –o 进行逻辑运算。</p><p>[ ] 是bash 内置命令：[ is a shell builtin。</p></blockquote><table><thead><tr><th>或与非</th><th></th></tr></thead><tbody><tr><td>-o</td><td>或，操作符两边一边为真，结果为真，否则为假。</td></tr><tr><td>-a</td><td>与，操作符两边均为真，结果为真，否则为假。</td></tr><tr><td>!</td><td>否，条件为假，结果为真。</td></tr></tbody></table><h2 id="Bash："><a href="#Bash：" class="headerlink" title="Bash：[[]]"></a>Bash：[[]]</h2><blockquote><p>[[ ]] 两个符号左右都要有空格分隔。</p><p>内部操作符与操作变量之间要有空格：如  [[  “a” =  “b”  ]]。</p><p>字符串比较中，可以直接使用 &gt; &lt; 无需转义。</p><p>[[ ]] 中字符串或者${}变量尽量如未使用”” 双引号扩住的话，会进行模式和元字符匹配。</p><p>[[] ] 内部可以使用 &amp;&amp;  || 进行逻辑运算。</p><p>[[ ]] 是bash  keyword：[[ is a shell keyword。</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>shell</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>shell</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Docker的基本操作使用</title>
+    <link href="/20201207/docker/"/>
+    <url>/20201207/docker/</url>
+    
+    <content type="html"><![CDATA[<h1 id="关于Dokcer"><a href="#关于Dokcer" class="headerlink" title="关于Dokcer"></a>关于Dokcer</h1><h1 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h1><p>docker镜像都是只读的，当docker启动时将新建一个可写层到顶部。</p><p>这一层通常称为容器层，之下为镜像层。</p><blockquote><p><a href="https://hub.docker.com/">https://hub.docker.com/</a>  Docker官方仓库</p></blockquote><h2 id="Images：查看镜像"><a href="#Images：查看镜像" class="headerlink" title="Images：查看镜像"></a>Images：查看镜像</h2><blockquote><p>docker images [OPTIONS] [REPOSITORY[:TAG]]</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-a</td><td>列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）。</td></tr><tr><td>-f</td><td>显示满足条件的镜像。</td></tr><tr><td>-q</td><td>只显示镜像ID。</td></tr><tr><td>–digests</td><td>显示镜像的摘要信息.</td></tr><tr><td>–format</td><td>指定返回值的模板文件。</td></tr><tr><td>–no-trunc</td><td>显示完整的镜像信息。</td></tr></tbody></table><h2 id="Rmi：删除镜像"><a href="#Rmi：删除镜像" class="headerlink" title="Rmi：删除镜像"></a>Rmi：删除镜像</h2><blockquote><p>docker rmi [OPTIONS] IMAGE [IMAGE…]</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-f</td><td>强制删除。</td></tr><tr><td>–no-prune</td><td>不移除该镜像的过程镜像，默认移除。</td></tr></tbody></table><h2 id="Tags：标记镜像"><a href="#Tags：标记镜像" class="headerlink" title="Tags：标记镜像"></a>Tags：标记镜像</h2><blockquote><p>docker tag [OPTIONS] IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]</p></blockquote><h2 id="Build：创建镜像"><a href="#Build：创建镜像" class="headerlink" title="Build：创建镜像"></a>Build：创建镜像</h2><blockquote><p>docker build [OPTIONS] PATH | URL | -</p></blockquote><h2 id="History：查看创建历史"><a href="#History：查看创建历史" class="headerlink" title="History：查看创建历史"></a>History：查看创建历史</h2><blockquote><p>docker history [OPTIONS] IMAGE</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-H</td><td>以可读的格式打印镜像大小和日期，默认为true。</td></tr><tr><td>-q</td><td>仅列出提交记录ID。</td></tr><tr><td>–no-trunc</td><td>显示完整的提交记录。</td></tr></tbody></table><h2 id="Save：将指定镜像保存为tar"><a href="#Save：将指定镜像保存为tar" class="headerlink" title="Save：将指定镜像保存为tar"></a>Save：将指定镜像保存为tar</h2><blockquote><p>docker save [OPTIONS] IMAGE [IMAGE…]</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-o</td><td>输出到的文件。</td></tr></tbody></table><h2 id="Load：导入tar文件镜像"><a href="#Load：导入tar文件镜像" class="headerlink" title="Load：导入tar文件镜像"></a>Load：导入tar文件镜像</h2><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-i, –input</td><td>指定导入的文件，代替 STDIN。</td></tr><tr><td>-q, –quiet</td><td>精简输出信息。</td></tr></tbody></table><h2 id="Import：从归档文件中创建镜像"><a href="#Import：从归档文件中创建镜像" class="headerlink" title="Import：从归档文件中创建镜像"></a>Import：从归档文件中创建镜像</h2><blockquote><p>docker import [OPTIONS] file|URL|- [REPOSITORY[:TAG]]</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-c</td><td>应用docker 指令创建镜像。</td></tr><tr><td>-m</td><td>提交时的说明文字。</td></tr></tbody></table><h1 id="镜像仓库"><a href="#镜像仓库" class="headerlink" title="镜像仓库"></a>镜像仓库</h1><h2 id="Login-Logout：登录-退出"><a href="#Login-Logout：登录-退出" class="headerlink" title="Login/Logout：登录/退出"></a>Login/Logout：登录/退出</h2><blockquote><p>docker login [OPTIONS] [SERVER]</p></blockquote><blockquote><p>docker logout [OPTIONS] [SERVER]</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-u</td><td>登陆的用户名。</td></tr><tr><td>-p</td><td>登陆的密码。</td></tr></tbody></table><h2 id="Pull：拉取镜像"><a href="#Pull：拉取镜像" class="headerlink" title="Pull：拉取镜像"></a>Pull：拉取镜像</h2><blockquote><p>docker pull [OPTIONS] NAME[:TAG|@DIGEST]</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-a</td><td>拉取所有 tagged 镜像。</td></tr><tr><td>–disable-content-trust</td><td>忽略镜像的校验,默认开启。</td></tr></tbody></table><h2 id="Push：推送镜像"><a href="#Push：推送镜像" class="headerlink" title="Push：推送镜像"></a>Push：推送镜像</h2><p>推送需要先登录。</p><blockquote><p>docker push [OPTIONS] NAME[:TAG]</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>–disable-content-trust</td><td>忽略镜像的校验,默认开启。</td></tr></tbody></table><h2 id="Search：查找镜像"><a href="#Search：查找镜像" class="headerlink" title="Search：查找镜像"></a>Search：查找镜像</h2><blockquote><p>docker search [OPTIONS] TERM</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>–automated</td><td>只列出 automated build类型的镜像。</td></tr><tr><td>–no-trunc</td><td>显示完整的镜像描述。</td></tr><tr><td>-s</td><td>列出收藏数不小于指定值的镜像。</td></tr></tbody></table><h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><h2 id="Ps：查看容器"><a href="#Ps：查看容器" class="headerlink" title="Ps：查看容器"></a>Ps：查看容器</h2><blockquote><p>docker ps [OPTIONS]</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-a</td><td>显示所有的容器，包括未运行的。</td></tr><tr><td>-f</td><td>根据条件过滤显示的内容。</td></tr><tr><td>-q</td><td>静默模式，只显示容器编号。</td></tr><tr><td>-s</td><td>显示总的文件大小。</td></tr><tr><td>-l</td><td>显示最近创建的容器。</td></tr><tr><td>-n</td><td>列出最近创建的n个容器。</td></tr><tr><td>–no-trunc</td><td>不截断输出。</td></tr><tr><td>–format</td><td>指定返回值的模板文件。</td></tr></tbody></table><ul><li>CONTAINER ID：容器ID.</li><li>IMAGE：使用的容器。</li><li>COMMAND：启动容器运行的命令。</li><li>CREATED：容器的创建时间。</li><li>STATUS：容器状态。<ul><li>created（已创建）</li><li>restarting（重启中）</li><li>running（运行中）</li><li>removing（迁移中）</li><li>paused（暂停）</li><li>exited（停止）</li><li>dead（死亡）</li></ul></li><li>PORTS：容器的端口信息和使用的连接类型（tcp\udp）。</li><li>NAMES：自动分配的容器名称。</li></ul><h2 id="Inspect：查看容器-镜像元数据"><a href="#Inspect：查看容器-镜像元数据" class="headerlink" title="Inspect：查看容器/镜像元数据"></a>Inspect：查看容器/镜像元数据</h2><blockquote><p>docker inspect [OPTIONS] NAME|ID [NAME|ID…]</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-f</td><td>指定返回值的模板文件。</td></tr><tr><td>-s</td><td>显示总的文件大小。</td></tr><tr><td>–type</td><td>为指定类型返回JSON。</td></tr></tbody></table><h2 id="Top：查看容器进程"><a href="#Top：查看容器进程" class="headerlink" title="Top：查看容器进程"></a>Top：查看容器进程</h2><blockquote><p>docker top [OPTIONS] CONTAINER [ps OPTIONS]</p></blockquote><h2 id="Attach：连接运行中的容器"><a href="#Attach：连接运行中的容器" class="headerlink" title="Attach：连接运行中的容器"></a>Attach：连接运行中的容器</h2><blockquote><p>docker attach [OPTIONS] CONTAINER</p></blockquote><p>要attach上去的容器必须正在运行，可以同时连接上同一个container来共享屏幕（与screen命令的attach类似）。</p><p>官方文档中说attach后可以通过CTRL-C来detach，但实际上经过我的测试，如果container当前在运行bash，CTRL-C自然是当前行的输入，没有退出；如果container当前正在前台运行进程，如输出nginx的access.log日志，CTRL-C不仅会导致退出容器，而且还stop了。这不是我们想要的，detach的意思按理应该是脱离容器终端，但容器依然运行。好在attach是可以带上–sig-proxy=false来确保CTRL-D或CTRL-C不会关闭容器。（引用菜鸟）</p><h2 id="Events：查看事件"><a href="#Events：查看事件" class="headerlink" title="Events：查看事件"></a>Events：查看事件</h2><blockquote><p>docker events [OPTIONS]</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-f</td><td>根据条件过滤事件。</td></tr><tr><td>–since</td><td>从指定的时间戳后显示所有事件。</td></tr><tr><td>–until</td><td>流水时间显示到指定的时间为止。</td></tr></tbody></table><h2 id="Logs：查看容器日志"><a href="#Logs：查看容器日志" class="headerlink" title="Logs：查看容器日志"></a>Logs：查看容器日志</h2><blockquote><p>docker logs [OPTIONS] CONTAINER</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-f</td><td>跟踪日志输出。</td></tr><tr><td>-t</td><td>显示时间戳。</td></tr><tr><td>–tail</td><td>仅列出最新N条容器日志。</td></tr><tr><td>–since</td><td>显示某个开始时间的所有日志。</td></tr></tbody></table><h2 id="Wait：阻塞容器运行"><a href="#Wait：阻塞容器运行" class="headerlink" title="Wait：阻塞容器运行"></a>Wait：阻塞容器运行</h2><blockquote><p>docker wait [OPTIONS] CONTAINER [CONTAINER…]</p></blockquote><h2 id="Export：导出tar文件到STDOUT"><a href="#Export：导出tar文件到STDOUT" class="headerlink" title="Export：导出tar文件到STDOUT"></a>Export：导出tar文件到STDOUT</h2><blockquote><p>docker export [OPTIONS] CONTAINER</p></blockquote><table><thead><tr><th>OPTIONS</th><th></th></tr></thead><tbody><tr><td>-o</td><td>将输入内容写到文件。</td></tr></tbody></table><h2 id="Port：查看容器端口"><a href="#Port：查看容器端口" class="headerlink" title="Port：查看容器端口"></a>Port：查看容器端口</h2><blockquote><p>docker port [OPTIONS] CONTAINER [PRIVATE_PORT[/PROTO]]</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>Docker</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Docker</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>开始使用</title>
+    <link href="/20201204/hello-world/"/>
+    <url>/20201204/hello-world/</url>
+    
+    <content type="html"><![CDATA[<h2 id="安装NodeJs与Npm"><a href="#安装NodeJs与Npm" class="headerlink" title="安装NodeJs与Npm"></a>安装NodeJs与Npm</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt -y install nodejs npm</span><br></pre></td></tr></table></figure><h2 id="安装Hexo-cli"><a href="#安装Hexo-cli" class="headerlink" title="安装Hexo-cli"></a>安装Hexo-cli</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><h2 id="开始体验"><a href="#开始体验" class="headerlink" title="开始体验"></a>开始体验</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+      <category>shell</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
