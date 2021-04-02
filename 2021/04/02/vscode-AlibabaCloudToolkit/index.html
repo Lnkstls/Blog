@@ -18,9 +18,25 @@
   <meta name="author" content="Lnkstls">
   <meta name="keywords" content="博客,个人博客,记录生活,友利奈绪,Lnkstls,Blog">
   
-  <title>分类 - vscode - Lnkstls Blog</title>
+  <title>vscode-AlibabaCloudToolkit - Lnkstls Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -48,7 +64,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -159,9 +175,54 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="分类 - vscode">
+            <span class="h2" id="subtitle" title="vscode-AlibabaCloudToolkit">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-02 22:00" pubdate>
+        2021年4月2日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      477 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -174,46 +235,116 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 2 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2021</p>
-    
-    <a href="/2021/04/02/vscode-AlibabaCloudToolkit/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">vscode-AlibabaCloudToolkit</span>
-      <time style="float: right;">04-02</time>
-    </a>
-  
-    
-    <a href="/2021/03/28/vscode-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">vscode-自定义代码片段</span>
-      <time style="float: right;">03-28</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">vscode-AlibabaCloudToolkit</h1>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>你是否有过这种需求：在开发中需要使用不可访问的网页（你懂的），而本地有Http代理端口。PS：因为Python在使用Telegram模块的时候会TimeOut，所以设置这个插件可以解决问题。</p>
+</blockquote>
+<p>如果你有这种需求，你可能发现设置vscode的HttpProxy没有作用，这个时候就轮到Alibaba Cloud Toolkit这个插件了。</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>关于这个插件的介绍，附上官方链接：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/29968.html">https://help.aliyun.com/document_detail/29968.html</a></p>
+</blockquote>
+<p>图解：<br><img src="p94746.png" srcset="/img/loading.gif" lazyload></p>
+<p>这里主要是使用其中的HttpProxy功能，官方的说明：</p>
+<ul>
+<li>隔离代码与环境，简化业务调试;<blockquote>
+<p>在开发测试的过程中，产品的功能存在多种对接情况，而且对接环境复杂，再&gt;加上安全访问，业务调试更为复杂。特别是前后端分离项目，通常会涉及跨&gt;域、Cookie、Header鉴权以及更复杂的跨堡垒机调用等问题。Alibaba &gt;Cloud Toolkit的HTTP Proxy功能无需修改代码，便可将业务代码与环境隔&gt;离，将复杂的业务调试请求简化管理，大幅度提高了测试效率。</p>
+</blockquote>
+</li>
+<li>一键切换不同代理配置;<blockquote>
+<p>在测试环境的代码中通常会添加通过代理进行请求转发的配置，但在产品发布&gt;时需要删除该配置，甚至涉及多套测试环境，致使本地测试再次启用比较繁&gt;琐。Alibaba Cloud Toolkit的HTTP Proxy功能支持保存历史的HTTP Proxy&gt;配置，即开即用，大幅度提升了测试环境复用率，降低资源成本。</p>
+</blockquote>
+</li>
+<li>接入简洁，便捷使用。<blockquote>
+<p>您无需安装Nginx和Charles等代理工具，只需在Visual Studio Code中搜&gt;索Alibaba Cloud Toolkit插件并嵌入，即可实现前后端联调。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>官方比我讲的详细，直接上链接：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/159096.html">https://help.aliyun.com/document_detail/159096.html</a></p>
+</blockquote>
 
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/vscode/">vscode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/vscode/">vscode</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/28/vscode-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
+                        <span class="hidden-mobile">vscode-自定义代码片段</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -319,9 +450,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
